@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.myorg</groupId>
+    <artifactId>cdk-jruby</artifactId>
+    <version>0.1</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>com.myorg.CdkJrubyApp</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+              <artifactId>maven-assembly-plugin</artifactId>
+              <configuration>
+                <archive>
+                  <manifest>
+                    <mainClass>com.myorg.Foo</mainClass>
+                  </manifest>
+                </archive>
+                <descriptorRefs>
+                  <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+              </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- AWS Cloud Development Kit -->
+        <dependency>
+            <groupId>software.amazon.awscdk</groupId>
+            <artifactId>core</artifactId>
+            <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>s3</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>lambda</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>events</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>events-targets</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>ec2</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>ecs</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>ecs-patterns</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awscdk</groupId>
+          <artifactId>logs</artifactId>
+          <version>1.30.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jruby/jruby-complete -->
+        <!--dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby-complete</artifactId>
+            <version>9.2.11.0</version>
+        </dependency-->
+
+    </dependencies>
+</project>
